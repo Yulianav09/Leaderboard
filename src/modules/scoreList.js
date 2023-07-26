@@ -10,7 +10,7 @@ export default class ScoreList {
     scoreItem.classList.add('scoreItem');
 
     scoreItem.innerHTML = `
-    <div>${scoreInstance.name}</div><div>${scoreInstance.score}</div>
+    <div>${scoreInstance.name} :</div><div>${scoreInstance.score}</div>
     `;
 
     this.container.appendChild(scoreItem);
