@@ -1,4 +1,3 @@
-
 export default class ScoreList {
   constructor(container) {
     this.container = container;

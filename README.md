@@ -51,10 +51,10 @@ For more information on the importance of a professional README for your reposit
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 To-Do list <a name="To-Do list"></a>
+# 📖 Leaderboard <a name="Leaderboard"></a>
 
 
-**To-Do list** is a project to add tasks to a list, you can check and remove the tasks you already completed
+**Leaderboard** The leaderboard website displays scores submitted by different players. It also allows you to submit your score. All data is preserved thanks to the external Leaderboard API service.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -63,14 +63,14 @@ For more information on the importance of a professional README for your reposit
 * HTML
 * CSS
 * JAVASCRIPT
+* WEBPACK
 
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
-- **Adding new task**
-- **Deleting tasks**
-- **Saved tasks when you refresh**
+- **Adding scores**
+- **Refresh scores**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -78,7 +78,7 @@ For more information on the importance of a professional README for your reposit
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://yulianav09.github.io/To-Do-list/)
+- [Live Demo Link](https://yulianav09.github.io/Leaderboard/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -100,7 +100,7 @@ Clone this repository to your desired folder:
 
 
 ```sh
-  git clone https://github.com/Yulianav09/To-Do-list
+  git clone https://github.com/Yulianav09/Leaderboard
 ```
 
 ### Install
@@ -132,23 +132,15 @@ After installing the project, run the following command to execute the project i
 - Twitter: [@Yuliana Velez Rodríguez](https://twitter.com/YulianaVel09)
 - LinkedIn: [Yuliana Velez Rodriguez](https://www.linkedin.com/in/yuliana-velez-rodriguez/)
 
-👤 **Iván Gonzalez**
-
-- GitHub: [@ivangonzalez224](https://github.com/ivangonzalez224)
-- Twitter: [@ivang2204](https://twitter.com/ivang2204)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/iván-gonzalez-robles-957491275)
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [x] **Implement more styles**
-- [x] **Add functionalities to add and remove elements**
-- [x] **Implement data recovery using the local storage**
-- [x] **Create interactivity to check and uncheck tasks**
-- [x] **Deploy Webpack project**
+- [ ] **Implement custom styles**
+- [ ] **Conect to the API**
+- [ ] **Add a refresh function**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -158,7 +150,7 @@ After installing the project, run the following command to execute the project i
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/Yulianav09/To-Do-list/issues).
+Feel free to check the [issues page](https://github.com/Yulianav09/Leaderboard/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -174,7 +166,7 @@ If you like this project plase give me a star
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank to my conding partners
+I would like to thank to my conding partners.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
