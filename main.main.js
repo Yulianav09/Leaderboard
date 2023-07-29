@@ -115,7 +115,17 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_score_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/score.js */ \"./src/modules/score.js\");\n/* harmony import */ var _modules_scoreList_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/scoreList.js */ \"./src/modules/scoreList.js\");\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n\n\n\n\nconst addScore = document.querySelector('#addScore');\nconst name = document.querySelector('#name');\nconst score = document.querySelector('#score');\nconst container = document.querySelector('#container');\nconst myScore = new _modules_scoreList_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"](container);\n\naddScore.addEventListener('submit', (e) => {\n  e.preventDefault();\n  const item = new _modules_score_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"](\n    name.value,\n    score.value,\n  );\n  myScore.createScore(item);\n  name.value = '';\n  score.value = '';\n});\n\n\n//# sourceURL=webpack://leaderboard/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_score_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/score.js */ \"./src/modules/score.js\");\n/* harmony import */ var _modules_scoreList_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/scoreList.js */ \"./src/modules/scoreList.js\");\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n\n\n\n\nconst addScore = document.querySelector('#addScore');\nconst name = document.querySelector('#name');\nconst score = document.querySelector('#score');\nconst container = document.querySelector('#container');\nconst refreshButton = document.querySelector('#refreshButton');\nconst myScore = new _modules_scoreList_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"](container);\n\naddScore.addEventListener('submit', (e) => {\n  e.preventDefault();\n  const item = new _modules_score_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"](\n    name.value,\n    score.value,\n  );\n  myScore.createScore(item);\n  name.value = '';\n  score.value = '';\n});\n\nrefreshButton.addEventListener('click', myScore.refreshScores);\n\n\n//# sourceURL=webpack://leaderboard/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/API.js":
+/*!****************************!*\
+  !*** ./src/modules/API.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   getScores: () => (/* binding */ getScores),\n/* harmony export */   sendScore: () => (/* binding */ sendScore)\n/* harmony export */ });\nconst baseUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/shGaJ2LWA2HutNROMD9t/scores/';\n\nconst sendScore = async (newScore) => {\n  fetch(baseUrl, {\n    method: 'POST',\n    body: newScore,\n    headers: { 'Content-type': 'application/json; charset=UTF-8' },\n  });\n};\n\nconst getScores = async () => {\n  const response = await fetch(baseUrl);\n  return response.json();\n};\n\n//# sourceURL=webpack://leaderboard/./src/modules/API.js?");
 
 /***/ }),
 
@@ -125,7 +135,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
   \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Score)\n/* harmony export */ });\nclass Score {\n  constructor(name, score) {\n    this.name = name;\n    this.score = score;\n  }\n}\n\n//# sourceURL=webpack://leaderboard/./src/modules/score.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Score)\n/* harmony export */ });\nclass Score {\n  constructor(name, score) {\n    this.user = name;\n    this.score = score;\n  }\n}\n\n//# sourceURL=webpack://leaderboard/./src/modules/score.js?");
 
 /***/ }),
 
@@ -135,7 +145,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ ScoreList)\n/* harmony export */ });\nclass ScoreList {\n  constructor(container) {\n    this.container = container;\n    this.list = [];\n  }\n\n  createScore = (scoreInstance) => {\n    const scoreItem = document.createElement('div');\n    scoreItem.classList.add('scoreItem');\n\n    scoreItem.innerHTML = `\n    <div>${scoreInstance.name} :</div><div>${scoreInstance.score}</div>\n    `;\n\n    this.container.appendChild(scoreItem);\n  }\n}\n\n//# sourceURL=webpack://leaderboard/./src/modules/scoreList.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ ScoreList)\n/* harmony export */ });\n/* harmony import */ var _API_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./API.js */ \"./src/modules/API.js\");\n\n\nclass ScoreList {\n  constructor(container) {\n    this.container = container;\n    this.list = [];\n    this.#fetchList();\n  }\n\n  #fetchList = async () => {\n    const response = await (0,_API_js__WEBPACK_IMPORTED_MODULE_0__.getScores)();\n    this.list = await response.result;\n    this.list.forEach((element) => { this.#addScore(element); });\n  }\n\n  #addScore = (scoreInstance) => {\n    const scoreItem = document.createElement('div');\n    scoreItem.classList.add('scoreItem');\n\n    scoreItem.innerHTML = `\n    <div>${scoreInstance.user} :</div><div>${scoreInstance.score}</div>\n    `;\n    this.container.appendChild(scoreItem);\n  }\n\n  createScore = (scoreInstance) => {\n    this.#addScore(scoreInstance);\n    (0,_API_js__WEBPACK_IMPORTED_MODULE_0__.sendScore)(JSON.stringify(scoreInstance));\n  }\n\n  refreshScores = () => {\n    this.container.innerHTML = '';\n    this.#fetchList();\n  }\n}\n\n//# sourceURL=webpack://leaderboard/./src/modules/scoreList.js?");
 
 /***/ })
 
