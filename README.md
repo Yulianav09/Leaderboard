@@ -139,8 +139,8 @@ After installing the project, run the following command to execute the project i
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **Implement custom styles**
-- [ ] **Conect to the API**
-- [ ] **Add a refresh function**
+- [x] **Conect to the API**
+- [x] **Add a refresh function**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
