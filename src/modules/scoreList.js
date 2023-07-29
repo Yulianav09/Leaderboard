@@ -1,16 +1,16 @@
-import { getScores, sendScore } from "./API.js";
+import { getScores, sendScore } from './API.js';
 
 export default class ScoreList {
-    constructor(container) {
+  constructor(container) {
     this.container = container;
     this.list = [];
     this.#fetchList();
   }
 
   #fetchList = async () => {
-    const response = await getScores()
-    this.list = await response.result
-    this.list.forEach(element => {this.#addScore(element)})
+    const response = await getScores();
+    this.list = await response.result;
+    this.list.forEach((element) => { this.#addScore(element); });
   }
 
   #addScore = (scoreInstance) => {
@@ -29,7 +29,7 @@ export default class ScoreList {
   }
 
   refreshScores = () => {
-    this.container.innerHTML=''
-    this.#fetchList()
+    this.container.innerHTML = '';
+    this.#fetchList();
   }
 }

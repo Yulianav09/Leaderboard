@@ -6,7 +6,7 @@ const addScore = document.querySelector('#addScore');
 const name = document.querySelector('#name');
 const score = document.querySelector('#score');
 const container = document.querySelector('#container');
-const refreshButton = document.querySelector('#refreshButton')
+const refreshButton = document.querySelector('#refreshButton');
 const myScore = new ScoreList(container);
 
 addScore.addEventListener('submit', (e) => {
@@ -20,4 +20,4 @@ addScore.addEventListener('submit', (e) => {
   score.value = '';
 });
 
-refreshButton.addEventListener('click', myScore.refreshScores)
+refreshButton.addEventListener('click', myScore.refreshScores);
